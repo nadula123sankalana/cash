@@ -8,6 +8,7 @@ export default function Testimonials() {
       company: 'Urban Goods Co.',
       role: 'CEO',
       rating: 5,
+      bgColor: 'bg-white',
     },
     {
       quote: 'Finally, a financing company that understands small businesses. Flexible terms, fast approval, and no runaround. Highly recommend!',
@@ -15,79 +16,143 @@ export default function Testimonials() {
       company: 'TechStart Solutions',
       role: 'Founder',
       rating: 5,
+      bgColor: 'bg-yellow-50',
+    },
+    {
+      quote: 'The application process was incredibly smooth. We were approved within 48 hours and received funds the next day. Outstanding service!',
+      name: 'Emily Johnson',
+      company: 'Retail Dynamics',
+      role: 'Operations Manager',
+      rating: 5,
+      bgColor: 'bg-purple-50',
+    },
+    {
+      quote: 'As a growing startup, we needed capital fast. Uplyft delivered exactly what they promised - quick, transparent, and reliable funding.',
+      name: 'David Park',
+      company: 'Innovate Labs',
+      role: 'Co-Founder',
+      rating: 5,
+      bgColor: 'bg-blue-50',
+    },
+    {
+      quote: 'What impressed me most was the transparency. No hidden fees, clear terms, and honest communication throughout the entire process.',
+      name: 'Lisa Thompson',
+      company: 'Green Solutions',
+      role: 'Director',
+      rating: 5,
+      bgColor: 'bg-green-50',
+    },
+    {
+      quote: 'Traditional banks turned us down, but Uplyft saw our potential. Their flexible approach helped us scale our operations successfully.',
+      name: 'James Wilson',
+      company: 'Manufacturing Plus',
+      role: 'Owner',
+      rating: 5,
+      bgColor: 'bg-pink-50',
     },
   ]
 
   return (
-    <section id="testimonials" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-accent-cyan opacity-5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-500 opacity-5 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block mb-4">
-            <span className="text-accent-cyan font-semibold text-sm uppercase tracking-wider">Testimonials</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6 text-shadow">
-            What Our Clients Say
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="group relative bg-white/90 backdrop-blur-sm p-8 lg:p-10 rounded-3xl shadow-2xl border border-gray-100 card-hover"
-            >
-              {/* Decorative quote mark */}
-              <div className="absolute top-6 left-8 text-7xl text-accent-cyan opacity-10 font-serif leading-none">
-                "
-              </div>
-              
-              {/* Rating stars */}
-              <div className="flex gap-1 mb-6 relative z-10">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <svg
+    <section id="testimonials" className="py-24 bg-white">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content - Social Proof & Header */}
+          <div className="space-y-8">
+            {/* Social Proof Header */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="flex items-center -space-x-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
                     key={i}
-                    className="w-5 h-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+                    className="w-12 h-12 rounded-full border-2 border-white bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm shadow-md"
                   >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                    {String.fromCharCode(64 + i)}
+                  </div>
                 ))}
               </div>
               
-              <p className="text-gray-700 text-lg leading-relaxed mb-8 relative z-10">
-                {testimonial.quote}
+              <div className="flex items-center gap-3">
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg
+                      key={star}
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-gray-900 font-bold text-base">Loved by 20K+ customers</span>
+              </div>
+            </div>
+            
+            {/* Main Heading */}
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+                What Our Clients Say
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+                Don't just take our word for it. Hear from businesses that have successfully grown with our funding solutions.
               </p>
-              
-              <div className="border-t border-gray-200 pt-6 relative z-10">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-cyan to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+            </div>
+            
+            {/* CTA Button */}
+            <a 
+              href="https://www.google.com/maps/place/Uplyft+Capital/@25.9333042,-80.1225759,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9a5496767ed4b:0x8dc98634f9b08aac!8m2!3d25.9333042!4d-80.1225759!16s%2Fg%2F11g8cv_cny?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-base md:text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <span className="relative z-10">Check Our Reviews</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+          </div>
+          
+          {/* Right Content - Testimonial Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`${testimonial.bgColor} p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+              >
+                {/* Client Info */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
                     {testimonial.name.charAt(0)}
                   </div>
-                  <div>
-                    <p className="font-heading font-bold text-gray-900 text-lg">
+                  <div className="flex-1">
+                    <p className="font-heading font-bold text-gray-900 text-sm">
                       {testimonial.name}
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-xs">
                       {testimonial.role}, {testimonial.company}
                     </p>
                   </div>
                 </div>
+                
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-3">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="w-4 h-4 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                
+                {/* Quote */}
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {testimonial.quote}
+                </p>
               </div>
-              
-              {/* Hover gradient effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-cyan/0 to-purple-500/0 group-hover:from-accent-cyan/5 group-hover:to-purple-500/5 transition-all duration-500 -z-10"></div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
