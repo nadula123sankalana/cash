@@ -35,13 +35,22 @@ export default function Process() {
   ]
 
   return (
-    <section id="how-it-works" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
+    <section id="how-it-works" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent-cyan opacity-5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 opacity-5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <span className="text-accent-cyan font-semibold text-sm uppercase tracking-wider">Our Process</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6 text-shadow">
             How It Works
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Three simple steps to get the funding you need
           </p>
         </div>
@@ -50,20 +59,34 @@ export default function Process() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="text-center card-hover bg-white p-8 rounded-2xl shadow-md"
+              className="group relative text-center bg-white/80 backdrop-blur-sm p-8 lg:p-10 rounded-3xl shadow-xl border border-white/50 card-hover"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary text-white mb-6 relative">
-                <span className="absolute -top-2 -right-2 text-3xl font-heading font-bold text-accent-cyan opacity-30">
+              {/* Decorative gradient border on hover */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-cyan/0 to-purple-500/0 group-hover:from-accent-cyan/10 group-hover:to-purple-500/10 transition-all duration-500 -z-10"></div>
+              
+              {/* Icon Container */}
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-cyan to-purple-600 text-white mb-8 relative shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
+                <span className="absolute -top-3 -right-3 text-4xl font-heading font-bold text-accent-cyan opacity-20 group-hover:opacity-30 transition-opacity">
                   {step.number}
                 </span>
-                <div className="relative z-10">{step.icon}</div>
+                <div className="relative z-10 transform group-hover:rotate-6 transition-transform duration-300">
+                  {step.icon}
+                </div>
               </div>
-              <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
+              
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-accent-cyan transition-colors">
                 {step.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-lg">
                 {step.description}
               </p>
+              
+              {/* Connecting line for desktop */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-12 w-12 lg:w-24 h-0.5 bg-gradient-to-r from-accent-cyan to-transparent">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-accent-cyan rounded-full"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -71,4 +94,3 @@ export default function Process() {
     </section>
   )
 }
-

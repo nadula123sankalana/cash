@@ -32,19 +32,23 @@ export default function Benefits() {
   ]
 
   return (
-    <section id="benefits" className="py-20 gradient-primary relative overflow-hidden">
+    <section id="benefits" className="py-24 gradient-primary relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-10 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-accent-cyan opacity-10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500 opacity-5 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-            Why Choose Us
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <span className="text-accent-cyan font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 text-shadow">
+            We're Your Growth Partner
           </h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
             We're not just another lender. We're your growth partner.
           </p>
         </div>
@@ -53,15 +57,20 @@ export default function Benefits() {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-xl card-hover"
+              className="group relative bg-white/95 backdrop-blur-sm p-8 lg:p-10 rounded-3xl shadow-2xl border border-white/20 card-hover"
             >
-              <div className="text-accent-cyan mb-6">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-cyan/0 to-purple-500/0 group-hover:from-accent-cyan/5 group-hover:to-purple-500/5 transition-all duration-500 -z-10"></div>
+              
+              {/* Icon */}
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-cyan to-purple-600 text-white mb-6 shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                 {benefit.icon}
               </div>
-              <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
+              
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-4 group-hover:text-accent-cyan transition-colors">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-lg">
                 {benefit.description}
               </p>
             </div>
@@ -71,4 +80,3 @@ export default function Benefits() {
     </section>
   )
 }
-
