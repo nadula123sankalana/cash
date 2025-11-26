@@ -30,9 +30,6 @@ export default function FinalCTA() {
               <span className="relative z-10">APPLY FOR YOUR LOAN NOW</span>
               <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
-            <button className="group relative bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-bold text-lg md:text-xl px-10 md:px-14 py-5 md:py-6 rounded-xl button-hover shadow-2xl w-full sm:w-auto hover:bg-white/20 transition-all duration-300">
-              CONTACT US
-            </button>
           </div>
           
           {/* Trust Features */}

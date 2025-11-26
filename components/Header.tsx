@@ -39,14 +39,7 @@ export default function Header() {
             <a href="#testimonials" className="text-white hover:text-accent-cyan transition-colors">
               Testimonials
             </a>
-            <button className="bg-accent-cyan text-gray-900 font-semibold px-6 py-2 rounded-lg button-hover">
-              APPLY NOW
-            </button>
           </div>
-          
-          <button className="md:hidden bg-accent-cyan text-gray-900 font-semibold px-4 py-2 rounded-lg text-sm">
-            APPLY
-          </button>
         </div>
       </nav>
     </header>
