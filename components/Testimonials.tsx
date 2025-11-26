@@ -1,54 +1,53 @@
 'use client'
 
+import Image from 'next/image'
+
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: 'Uplyft Capital saved our business. We needed funds quickly to fulfill a large order, and they delivered in 24 hours. The process was seamless and transparent.',
-      name: 'Sarah Chen',
-      company: 'Urban Goods Co.',
+      quote: 'The application process was incredibly smooth. We were approved within 48 hours.',
+      name: 'Michael Torres',
+      company: 'Metro Electronics',
       role: 'CEO',
       rating: 5,
       bgColor: 'bg-white',
+      image: '/6.jpeg',
     },
     {
-      quote: 'Finally, a financing company that understands small businesses. Flexible terms, fast approval, and no runaround. Highly recommend!',
-      name: 'Michael Rodriguez',
-      company: 'TechStart Solutions',
+      quote: 'As a seasonal business, we needed funding that understood our revenue fluctuations.',
+      name: 'David Chen',
+      company: 'Alpine Outfitters',
       role: 'Founder',
       rating: 5,
       bgColor: 'bg-yellow-50',
+      image: '/7.jpeg',
     },
     {
-      quote: 'The application process was incredibly smooth. We were approved within 48 hours and received funds the next day. Outstanding service!',
-      name: 'Emily Johnson',
-      company: 'Retail Dynamics',
-      role: 'Operations Manager',
-      rating: 5,
-      bgColor: 'bg-purple-50',
-    },
-    {
-      quote: 'As a growing startup, we needed capital fast. Uplyft delivered exactly what they promised - quick, transparent, and reliable funding.',
-      name: 'David Park',
-      company: 'Innovate Labs',
-      role: 'Co-Founder',
-      rating: 5,
-      bgColor: 'bg-blue-50',
-    },
-    {
-      quote: 'What impressed me most was the transparency. No hidden fees, clear terms, and honest communication throughout the entire process.',
-      name: 'Lisa Thompson',
-      company: 'Green Solutions',
-      role: 'Director',
-      rating: 5,
-      bgColor: 'bg-green-50',
-    },
-    {
-      quote: 'Traditional banks turned us down, but Uplyft saw our potential. Their flexible approach helped us scale our operations successfully.',
-      name: 'James Wilson',
-      company: 'Manufacturing Plus',
+      quote: 'CashAdv Capital provided the funding we needed to expand our restaurant when traditional banks said no.',
+      name: 'Sarah Johnson',
+      company: 'Coastal Kitchen',
       role: 'Owner',
       rating: 5,
-      bgColor: 'bg-pink-50',
+      bgColor: 'bg-purple-50',
+      image: '/8.avif',
+    },
+    {
+      quote: 'What impressed me most was the transparency. No hidden fees, clear terms.',
+      name: 'Jessica Williams',
+      company: 'Bloom Boutique',
+      role: 'Director',
+      rating: 5,
+      bgColor: 'bg-blue-50',
+      image: '/9.avif',
+    },
+    {
+      quote: 'When our equipment suddenly failed, we needed capital fast. Uplyft delivered.',
+      name: 'Robert Miller',
+      company: 'Precision Manufacturing',
+      role: 'Operations',
+      rating: 5,
+      bgColor: 'bg-green-50',
+      image: '/10.jpeg',
     },
   ]
 
@@ -64,9 +63,15 @@ export default function Testimonials() {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div
                     key={i}
-                    className="w-12 h-12 rounded-full border-2 border-white bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm shadow-md"
+                    className="w-12 h-12 rounded-full border-2 border-white overflow-hidden shadow-md relative"
                   >
-                    {String.fromCharCode(64 + i)}
+                    <Image
+                      src={`/${i}.jpg`}
+                      alt={`Customer ${i}`}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>
@@ -111,7 +116,7 @@ export default function Testimonials() {
           </div>
           
           {/* Right Content - Testimonial Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
@@ -119,8 +124,14 @@ export default function Testimonials() {
               >
                 {/* Client Info */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
-                    {testimonial.name.charAt(0)}
+                  <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200 relative">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <p className="font-heading font-bold text-gray-900 text-sm">

@@ -62,9 +62,29 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <p className="text-center md:text-right">
-            © {new Date().getFullYear()} Uplyft Capital. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <div className="flex gap-4">
+              <a 
+                href="https://www.uplyftcapital.com/privacy-policy" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-accent-cyan transition-colors"
+              >
+                Terms and Conditions
+              </a>
+              <a 
+                href="https://www.uplyftcapital.com/privacy-policy" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-accent-cyan transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </div>
+            <p className="text-center md:text-right">
+              © {new Date().getFullYear()} Uplyft Capital. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

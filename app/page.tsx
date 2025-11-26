@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import Process from '@/components/Process'
 import Benefits from '@/components/Benefits'
 import Testimonials from '@/components/Testimonials'
+import AuthorizationSection from '@/components/AuthorizationSection'
 import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Process />
       <Benefits />
       <Testimonials />
+      <AuthorizationSection />
       <FinalCTA />
       <Footer />
     </main>

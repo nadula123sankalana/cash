@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import EligibilityForm from './EligibilityForm'
 
 export default function Hero() {
@@ -32,9 +33,15 @@ export default function Hero() {
                   {[1, 2, 3, 4, 5].map((i) => (
                     <div
                       key={i}
-                      className="w-12 h-12 rounded-full border-2 border-white bg-gradient-to-br from-accent-cyan to-accent-magenta flex items-center justify-center text-white font-bold text-sm shadow-lg"
+                      className="w-12 h-12 rounded-full border-2 border-white overflow-hidden shadow-lg relative"
                     >
-                      {String.fromCharCode(64 + i)}
+                      <Image
+                        src={`/${i}.jpg`}
+                        alt={`Customer ${i}`}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   ))}
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-white/10 backdrop-blur-sm flex items-center justify-center text-white font-bold text-xs shadow-lg">
