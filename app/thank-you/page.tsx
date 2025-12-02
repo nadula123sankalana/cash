@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 export default function ThankYouPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 py-16 bg-gradient-to-b from-blue-600 via-blue-500 to-sky-400">
+    <main className="min-h-screen flex items-center justify-center px-4 py-16 bg-gradient-to-b from-purple-700 via-blue-600 to-sky-400">
       {/* Subtle background orbs */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl" />
+        <div className="absolute -top-20 -right-10 w-64 h-64 bg-purple-400/25 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-300/25 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-xl w-full bg-white rounded-3xl shadow-2xl px-6 py-10 sm:px-10 sm:py-12 text-center">

@@ -22,7 +22,7 @@ export default function AuthorizationSection() {
           </div>
           
           {/* Right Content - SSL Security Badge */}
-          <div className="lg:col-span-1 flex flex-col items-center lg:items-end">
+          <div className="lg:col-span-1 flex flex-col items-start lg:items-end">
             <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 max-w-xs">
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex flex-col items-center">
