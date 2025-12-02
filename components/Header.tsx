@@ -25,7 +25,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <h1 className="text-2xl font-heading font-bold text-white">
-              Uplyft Capital
+              Fund Rise Capital
             </h1>
           </div>
           

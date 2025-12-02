@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 pb-12 border-b border-white/20">
           <div className="mb-8 md:mb-0">
             <h3 className="text-3xl font-heading font-bold mb-2 bg-gradient-to-r from-white to-accent-cyan bg-clip-text text-transparent">
-              Uplyft Capital
+              Fund Rise Capital
             </h3>
             <p className="text-text-secondary text-sm mt-2 max-w-xs">
               Empowering businesses with fast, flexible funding solutions.
@@ -64,7 +64,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-center">
-              © {new Date().getFullYear()} Uplyft Capital. All rights reserved.
+              © {new Date().getFullYear()} Fund Rise Capital. All rights reserved.
             </p>
           </div>
         </div>

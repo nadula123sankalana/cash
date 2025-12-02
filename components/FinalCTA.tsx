@@ -15,12 +15,9 @@ export default function FinalCTA() {
           <div className="inline-block mb-4">
             <span className="text-accent-cyan font-semibold text-sm uppercase tracking-wider">Get Started Today</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 text-shadow leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-12 text-shadow leading-tight">
             Ready to Uplift Your Business?
           </h2>
-          <p className="text-xl md:text-2xl text-text-secondary mb-12 leading-relaxed">
-            Stop waiting on slow banks. Get the capital you need to grow, today.
-          </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a 

@@ -41,7 +41,7 @@ export default function Testimonials() {
       image: '/9.avif',
     },
     {
-      quote: 'When our equipment suddenly failed, we needed capital fast. Uplyft delivered.',
+      quote: 'When our equipment suddenly failed, we needed capital fast. Fund Rise Capital delivered.',
       name: 'Robert Miller',
       company: 'Precision Manufacturing',
       role: 'Operations',

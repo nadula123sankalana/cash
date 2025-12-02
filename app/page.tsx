@@ -2,7 +2,7 @@
 
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import Process from '@/components/Process'
+import Statistics from '@/components/Statistics'
 import Benefits from '@/components/Benefits'
 import Testimonials from '@/components/Testimonials'
 import AuthorizationSection from '@/components/AuthorizationSection'
@@ -14,7 +14,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <Process />
+      <Statistics />
       <Benefits />
       <Testimonials />
       <AuthorizationSection />

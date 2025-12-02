@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Uplyft Capital - Fast Business Financing in 24 Hours',
+  title: 'Fund Rise Capital - Fast Business Financing in 24 Hours',
   description: 'Get the fast, flexible capital you need to seize opportunities, manage cash flow, and take your business to the next level.',
   keywords: 'business funding, fast loans, business financing, 24 hour funding, capital funding',
-  authors: [{ name: 'Uplyft Capital' }],
+  authors: [{ name: 'Fund Rise Capital' }],
   openGraph: {
-    title: 'Uplyft Capital - Fast Business Financing in 24 Hours',
+    title: 'Fund Rise Capital - Fast Business Financing in 24 Hours',
     description: 'Get the fast, flexible capital you need to seize opportunities, manage cash flow, and take your business to the next level.',
     type: 'website',
   },

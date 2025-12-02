@@ -25,10 +25,79 @@ export default function EligibilityForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    
+    // Format date input for businessStartDate
+    if (name === 'businessStartDate' && e.target.type === 'text') {
+      let formattedValue = value.replace(/\D/g, ''); // Remove non-digits
+      
+      if (formattedValue.length > 0) {
+        if (formattedValue.length <= 2) {
+          formattedValue = formattedValue;
+        } else if (formattedValue.length <= 4) {
+          formattedValue = `${formattedValue.slice(0, 2)}/${formattedValue.slice(2)}`;
+        } else {
+          formattedValue = `${formattedValue.slice(0, 2)}/${formattedValue.slice(2, 4)}/${formattedValue.slice(4, 8)}`;
+        }
+      }
+      
+      setFormData((prev) => ({
+        ...prev,
+        [name]: formattedValue,
+      }));
+    } else if (name === 'businessStartDate' && e.target.type === 'date') {
+      // Convert date input to mm/dd/yyyy format
+      if (value) {
+        const date = new Date(value);
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const year = date.getFullYear();
+        const formattedDate = `${month}/${day}/${year}`;
+        setFormData((prev) => ({
+          ...prev,
+          [name]: formattedDate,
+        }));
+      }
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+  };
+  
+  const handleDateIconClick = () => {
+    const dateInput = document.getElementById('businessStartDateHidden') as HTMLInputElement;
+    if (dateInput) {
+      // Convert current mm/dd/yyyy to yyyy-mm-dd format for date input
+      if (formData.businessStartDate) {
+        const parts = formData.businessStartDate.split('/');
+        if (parts.length === 3) {
+          const [month, day, year] = parts;
+          dateInput.value = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+        }
+      }
+      // Try to show picker, fallback to click if not available
+      if (dateInput.showPicker) {
+        dateInput.showPicker();
+      } else {
+        dateInput.focus();
+        dateInput.click();
+      }
+    }
+  };
+  
+  const handleHiddenDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value) {
+      const date = new Date(e.target.value);
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const year = date.getFullYear();
+      const formattedDate = `${month}/${day}/${year}`;
+      setFormData((prev) => ({
+        ...prev,
+        businessStartDate: formattedDate,
+      }));
+    }
   };
 
   const handleNext = (e: React.FormEvent) => {
@@ -90,15 +159,44 @@ export default function EligibilityForm() {
                   >
                     Business Start date
                   </label>
-                  <input
-                    type="text"
-                    id="businessStartDate"
-                    name="businessStartDate"
-                    value={formData.businessStartDate}
-                    onChange={handleChange}
-                    placeholder="mm/dd/yyyy"
-                    className="w-full px-0 py-2 text-gray-900 placeholder-gray-400 transition-colors border-0 border-b border-gray-300 focus:outline-none focus:border-gray-900"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="businessStartDate"
+                      name="businessStartDate"
+                      value={formData.businessStartDate}
+                      onChange={handleChange}
+                      placeholder="mm/dd/yyyy"
+                      maxLength={10}
+                      className="w-full px-0 py-2 pr-8 text-gray-900 placeholder-gray-400 transition-colors border-0 border-b border-gray-300 focus:outline-none focus:border-gray-900"
+                    />
+                    <input
+                      type="date"
+                      id="businessStartDateHidden"
+                      onChange={handleHiddenDateChange}
+                      className="absolute opacity-0 pointer-events-none w-0 h-0"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleDateIconClick}
+                      className="absolute right-0 transform -translate-y-1/2 top-1/2 cursor-pointer"
+                      aria-label="Open calendar"
+                    >
+                      <svg
+                        className="w-5 h-5 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
 
                 {/* Business Debt */}
@@ -193,15 +291,21 @@ export default function EligibilityForm() {
                     What does the business do?
                   </label>
                   <div className="relative">
-                    <input
-                      type="text"
+                    <select
                       id="businessType"
                       name="businessType"
                       value={formData.businessType}
                       onChange={handleChange}
-                      placeholder=""
-                      className="w-full px-0 py-2 pr-8 text-gray-900 placeholder-gray-400 transition-colors border-0 border-b border-gray-300 focus:outline-none focus:border-gray-900"
-                    />
+                      className="w-full px-0 py-2 text-gray-900 transition-colors bg-transparent border-0 border-b border-gray-300 appearance-none cursor-pointer focus:outline-none focus:border-gray-900"
+                    >
+                      <option value="">Select</option>
+                      <option value="cpa-accountant">CPA / Accountant Office</option>
+                      <option value="restaurant">Restaurant</option>
+                      <option value="retail">Retail</option>
+                      <option value="construction">Construction</option>
+                      <option value="healthcare">Healthcare</option>
+                      <option value="other">Other</option>
+                    </select>
                     <div className="absolute right-0 transform -translate-y-1/2 pointer-events-none top-1/2">
                       <svg
                         className="w-5 h-5 text-gray-400"
