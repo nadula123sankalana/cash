@@ -41,15 +41,36 @@ export default function Statistics() {
   ]
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-accent-cyan opacity-5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-64 h-64 bg-purple-400 opacity-5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-300 opacity-3 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-100 opacity-30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-100 opacity-30 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Impact</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6">
+            Business Funding Overview
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+            A snapshot of the capital we&apos;ve deployed, businesses we&apos;ve helped, and the speed and satisfaction of our funding process.
+          </p>
+          
+          {/* Informational Badge */}
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 rounded-full border border-blue-100 shadow-sm">
+            <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span className="text-blue-900 font-semibold text-sm md:text-base">
+              Trusted by 20,000+ Businesses
+            </span>
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <div

@@ -5,43 +5,61 @@ export default function Benefits() {
     {
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Lightning Fast',
-      description: 'Get approved and funded in 24 hours, not weeks. Time is money, and we respect yours.',
+      iconColor: 'from-purple-100 to-purple-200',
+      title: 'Flexible Funding',
+      description: 'Access working capital tailored to your business needs',
       features: [
-        'Same-day approval available',
-        '24-hour funding guarantee',
-        'Streamlined application process',
+        'Funding up to $5,000,000',
+        'No fixed monthly payments',
+        'Use funds for any business purpose',
       ],
     },
     {
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Flexible Terms',
-      description: 'Customized financing solutions that adapt to your business needs, not the other way around.',
+      iconColor: 'from-purple-100 to-purple-200',
+      title: 'Quick Process',
+      description: 'Get approved and funded faster than traditional loans',
       features: [
-        'Customizable repayment plans',
-        'No prepayment penalties',
-        'Terms that grow with you',
+        '24-48 hour approvals',
+        'Simple application process',
+        'Minimal documentation needed',
       ],
     },
     {
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       ),
-      title: 'Transparent Process',
-      description: 'No hidden fees, no surprises. Clear terms and honest communication every step of the way.',
+      iconColor: 'from-blue-100 to-blue-200',
+      title: 'Easy Qualification',
+      description: 'Flexible requirements make it easier to qualify',
       features: [
-        'No hidden fees or charges',
-        'Clear, upfront pricing',
-        'Honest communication always',
+        'No collateral required',
+        'Bad credit accepted',
+        'Based on business performance',
+      ],
+    },
+    {
+      icon: (
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      ),
+      iconColor: 'from-green-100 to-green-200',
+      title: 'Flexible Repayment',
+      description: 'Pay based on your daily credit card sales',
+      features: [
+        'Revenue-based payments',
+        'Adjust with your cash flow',
+        'No hidden fees',
       ],
     },
   ]
@@ -57,35 +75,32 @@ export default function Benefits() {
       
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <span className="text-accent-cyan font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
-          </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 text-shadow">
-            We're Your Growth Partner
+            Simple & Flexible Funding Solutions
           </h2>
           <p className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed mb-8">
-            We're not just another lender. We're your growth partner committed to your success.
+            Get the working capital you need with our streamlined merchant cash advance program. Quick approvals, flexible terms, and funding up to $5,000,000.
           </p>
           
           {/* Informational Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-sm">
-            <svg className="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-purple-200/20 backdrop-blur-sm rounded-full border border-purple-300/30 shadow-sm">
+            <svg className="w-5 h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span className="text-white font-semibold text-sm md:text-base">
-              Trusted by 20,000+ Businesses
+              No Hard Credit Check Required
             </span>
           </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {benefits.map((benefit, index) => (
             <div
               key={index}
               className="group relative bg-white p-8 lg:p-10 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
               {/* Icon Container */}
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center text-purple-600 mb-6 group-hover:scale-105 transition-all duration-300">
+              <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${benefit.iconColor} flex items-center justify-center text-gray-700 mb-6 group-hover:scale-105 transition-all duration-300`}>
                 {benefit.icon}
               </div>
               

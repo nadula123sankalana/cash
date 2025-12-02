@@ -28,18 +28,6 @@ export default function Header() {
               Fund Rise Capital
             </h1>
           </div>
-          
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#how-it-works" className="text-white hover:text-accent-cyan transition-colors">
-              How It Works
-            </a>
-            <a href="#benefits" className="text-white hover:text-accent-cyan transition-colors">
-              Why Choose Us
-            </a>
-            <a href="#testimonials" className="text-white hover:text-accent-cyan transition-colors">
-              Testimonials
-            </a>
-          </div>
         </div>
       </nav>
     </header>

@@ -21,6 +21,40 @@ export default function EligibilityForm() {
     desiredAmount: "",
   });
 
+  const businessTypeOptions = [
+    { value: "cpa-accountant", label: "CPA / Accountant Office" },
+    { value: "restaurant", label: "Restaurant" },
+    { value: "retail", label: "Retail" },
+    { value: "construction", label: "Construction" },
+    { value: "healthcare", label: "Healthcare" },
+    { value: "other", label: "Other" },
+  ];
+
+  const businessDebtOptions = [
+    { value: "none", label: "None" },
+    { value: "low", label: "Low ($0-$10k)" },
+    { value: "medium", label: "Medium ($10k-$50k)" },
+    { value: "high", label: "High ($50k+)" },
+  ];
+
+  const creditScoreOptions = [
+    { value: "excellent", label: "Excellent (750+)" },
+    { value: "good", label: "Good (700-749)" },
+    { value: "fair", label: "Fair (650-699)" },
+    { value: "poor", label: "Poor (Below 650)" },
+  ];
+
+  const bankAccountTypeOptions = [
+    { value: "checking", label: "Checking" },
+    { value: "savings", label: "Savings" },
+    { value: "both", label: "Both" },
+  ];
+
+  const [isBusinessTypeOpen, setIsBusinessTypeOpen] = useState(false);
+  const [isBusinessDebtOpen, setIsBusinessDebtOpen] = useState(false);
+  const [isCreditScoreOpen, setIsCreditScoreOpen] = useState(false);
+  const [isBankAccountTypeOpen, setIsBankAccountTypeOpen] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -159,7 +193,7 @@ export default function EligibilityForm() {
                   >
                     Business Start date
                   </label>
-                  <div className="relative">
+                  <div className="relative group">
                     <input
                       type="text"
                       id="businessStartDate"
@@ -168,7 +202,7 @@ export default function EligibilityForm() {
                       onChange={handleChange}
                       placeholder="mm/dd/yyyy"
                       maxLength={10}
-                      className="w-full px-0 py-2 pr-8 text-gray-900 placeholder-gray-400 transition-colors border-0 border-b border-gray-300 focus:outline-none focus:border-gray-900"
+                      className="w-full px-0 py-2 pr-8 text-gray-900 placeholder-gray-400 transition-all duration-300 border-0 border-b-2 border-gray-300 focus:outline-none focus:border-blue-600 hover:border-purple-400"
                     />
                     <input
                       type="date"
@@ -179,11 +213,11 @@ export default function EligibilityForm() {
                     <button
                       type="button"
                       onClick={handleDateIconClick}
-                      className="absolute right-0 transform -translate-y-1/2 top-1/2 cursor-pointer"
+                      className="absolute right-0 transform -translate-y-1/2 top-1/2 cursor-pointer transition-all duration-300 hover:scale-110"
                       aria-label="Open calendar"
                     >
                       <svg
-                        className="w-5 h-5 text-gray-400"
+                        className="w-5 h-5 text-gray-400 group-hover:text-purple-500 transition-colors duration-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -208,22 +242,22 @@ export default function EligibilityForm() {
                     Business Debt
                   </label>
                   <div className="relative">
-                    <select
-                      id="businessDebt"
-                      name="businessDebt"
-                      value={formData.businessDebt}
-                      onChange={handleChange}
-                      className="w-full px-0 py-2 text-gray-900 transition-colors bg-transparent border-0 border-b border-gray-300 appearance-none cursor-pointer focus:outline-none focus:border-gray-900"
+                    <button
+                      type="button"
+                      onClick={() => setIsBusinessDebtOpen((open) => !open)}
+                      className="w-full flex items-center justify-between px-0 py-2 text-left text-gray-900 border-0 border-b-2 border-gray-300 cursor-pointer transition-all duration-300 focus:outline-none focus:border-blue-600 hover:border-purple-400"
                     >
-                      <option value="">Select</option>
-                      <option value="none">None</option>
-                      <option value="low">Low ($0-$10k)</option>
-                      <option value="medium">Medium ($10k-$50k)</option>
-                      <option value="high">High ($50k+)</option>
-                    </select>
-                    <div className="absolute right-0 transform -translate-y-1/2 pointer-events-none top-1/2">
+                      <span className={formData.businessDebt ? "" : "text-gray-400"}>
+                        {formData.businessDebt
+                          ? businessDebtOptions.find(
+                              (opt) => opt.value === formData.businessDebt
+                            )?.label
+                          : "Select"}
+                      </span>
                       <svg
-                        className="w-5 h-5 text-gray-400"
+                        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                          isBusinessDebtOpen ? "rotate-180 text-purple-500" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -235,7 +269,31 @@ export default function EligibilityForm() {
                           d="M19 9l-7 7-7-7"
                         />
                       </svg>
-                    </div>
+                    </button>
+                    {isBusinessDebtOpen && (
+                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                        {businessDebtOptions.map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                businessDebt: option.value,
+                              }));
+                              setIsBusinessDebtOpen(false);
+                            }}
+                            className={`w-full px-4 py-2.5 text-left text-sm transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700 ${
+                              formData.businessDebt === option.value
+                                ? "bg-blue-50 text-blue-700 font-semibold"
+                                : "text-gray-700"
+                            }`}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -248,22 +306,22 @@ export default function EligibilityForm() {
                     Credit Score
                   </label>
                   <div className="relative">
-                    <select
-                      id="creditScore"
-                      name="creditScore"
-                      value={formData.creditScore}
-                      onChange={handleChange}
-                      className="w-full px-0 py-2 text-gray-900 transition-colors bg-transparent border-0 border-b border-gray-300 appearance-none cursor-pointer focus:outline-none focus:border-gray-900"
+                    <button
+                      type="button"
+                      onClick={() => setIsCreditScoreOpen((open) => !open)}
+                      className="w-full flex items-center justify-between px-0 py-2 text-left text-gray-900 border-0 border-b-2 border-gray-300 cursor-pointer transition-all duration-300 focus:outline-none focus:border-blue-600 hover:border-purple-400"
                     >
-                      <option value="">Select</option>
-                      <option value="excellent">Excellent (750+)</option>
-                      <option value="good">Good (700-749)</option>
-                      <option value="fair">Fair (650-699)</option>
-                      <option value="poor">Poor (Below 650)</option>
-                    </select>
-                    <div className="absolute right-0 transform -translate-y-1/2 pointer-events-none top-1/2">
+                      <span className={formData.creditScore ? "" : "text-gray-400"}>
+                        {formData.creditScore
+                          ? creditScoreOptions.find(
+                              (opt) => opt.value === formData.creditScore
+                            )?.label
+                          : "Select"}
+                      </span>
                       <svg
-                        className="w-5 h-5 text-gray-400"
+                        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                          isCreditScoreOpen ? "rotate-180 text-purple-500" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -275,7 +333,31 @@ export default function EligibilityForm() {
                           d="M19 9l-7 7-7-7"
                         />
                       </svg>
-                    </div>
+                    </button>
+                    {isCreditScoreOpen && (
+                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                        {creditScoreOptions.map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                creditScore: option.value,
+                              }));
+                              setIsCreditScoreOpen(false);
+                            }}
+                            className={`w-full px-4 py-2.5 text-left text-sm transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700 ${
+                              formData.creditScore === option.value
+                                ? "bg-blue-50 text-blue-700 font-semibold"
+                                : "text-gray-700"
+                            }`}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -291,24 +373,22 @@ export default function EligibilityForm() {
                     What does the business do?
                   </label>
                   <div className="relative">
-                    <select
-                      id="businessType"
-                      name="businessType"
-                      value={formData.businessType}
-                      onChange={handleChange}
-                      className="w-full px-0 py-2 text-gray-900 transition-colors bg-transparent border-0 border-b border-gray-300 appearance-none cursor-pointer focus:outline-none focus:border-gray-900"
+                    <button
+                      type="button"
+                      onClick={() => setIsBusinessTypeOpen((open) => !open)}
+                      className="w-full flex items-center justify-between px-0 py-2 text-left text-gray-900 border-0 border-b-2 border-gray-300 cursor-pointer transition-all duration-300 focus:outline-none focus:border-blue-600 hover:border-purple-400"
                     >
-                      <option value="">Select</option>
-                      <option value="cpa-accountant">CPA / Accountant Office</option>
-                      <option value="restaurant">Restaurant</option>
-                      <option value="retail">Retail</option>
-                      <option value="construction">Construction</option>
-                      <option value="healthcare">Healthcare</option>
-                      <option value="other">Other</option>
-                    </select>
-                    <div className="absolute right-0 transform -translate-y-1/2 pointer-events-none top-1/2">
+                      <span className={formData.businessType ? "" : "text-gray-400"}>
+                        {formData.businessType
+                          ? businessTypeOptions.find(
+                              (opt) => opt.value === formData.businessType
+                            )?.label
+                          : "Select"}
+                      </span>
                       <svg
-                        className="w-5 h-5 text-gray-400"
+                        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                          isBusinessTypeOpen ? "rotate-180 text-purple-500" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -320,7 +400,31 @@ export default function EligibilityForm() {
                           d="M19 9l-7 7-7-7"
                         />
                       </svg>
-                    </div>
+                    </button>
+                    {isBusinessTypeOpen && (
+                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                        {businessTypeOptions.map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                businessType: option.value,
+                              }));
+                              setIsBusinessTypeOpen(false);
+                            }}
+                            className={`w-full px-4 py-2.5 text-left text-sm transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700 ${
+                              formData.businessType === option.value
+                                ? "bg-blue-50 text-blue-700 font-semibold"
+                                : "text-gray-700"
+                            }`}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -333,21 +437,22 @@ export default function EligibilityForm() {
                     Bank Account Type
                   </label>
                   <div className="relative">
-                    <select
-                      id="bankAccountType"
-                      name="bankAccountType"
-                      value={formData.bankAccountType}
-                      onChange={handleChange}
-                      className="w-full px-0 py-2 text-gray-900 transition-colors bg-transparent border-0 border-b border-gray-300 appearance-none cursor-pointer focus:outline-none focus:border-gray-900"
+                    <button
+                      type="button"
+                      onClick={() => setIsBankAccountTypeOpen((open) => !open)}
+                      className="w-full flex items-center justify-between px-0 py-2 text-left text-gray-900 border-0 border-b-2 border-gray-300 cursor-pointer transition-all duration-300 focus:outline-none focus:border-blue-600 hover:border-purple-400"
                     >
-                      <option value="">Select</option>
-                      <option value="checking">Checking</option>
-                      <option value="savings">Savings</option>
-                      <option value="both">Both</option>
-                    </select>
-                    <div className="absolute right-0 transform -translate-y-1/2 pointer-events-none top-1/2">
+                      <span className={formData.bankAccountType ? "" : "text-gray-400"}>
+                        {formData.bankAccountType
+                          ? bankAccountTypeOptions.find(
+                              (opt) => opt.value === formData.bankAccountType
+                            )?.label
+                          : "Select"}
+                      </span>
                       <svg
-                        className="w-5 h-5 text-gray-400"
+                        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                          isBankAccountTypeOpen ? "rotate-180 text-purple-500" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -359,7 +464,31 @@ export default function EligibilityForm() {
                           d="M19 9l-7 7-7-7"
                         />
                       </svg>
-                    </div>
+                    </button>
+                    {isBankAccountTypeOpen && (
+                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                        {bankAccountTypeOptions.map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                bankAccountType: option.value,
+                              }));
+                              setIsBankAccountTypeOpen(false);
+                            }}
+                            className={`w-full px-4 py-2.5 text-left text-sm transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700 ${
+                              formData.bankAccountType === option.value
+                                ? "bg-blue-50 text-blue-700 font-semibold"
+                                : "text-gray-700"
+                            }`}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
