@@ -195,7 +195,7 @@ export default function EligibilityForm() {
           <div className="w-full space-y-6 animate-fadeIn">
             <div className="grid w-full gap-6 md:grid-cols-2">
               {/* Left Column */}
-              <div className="space-y-6">
+              <div className="space-y-6 border-r border-gray-200 pr-4 md:pr-6">
                 {/* Business Start date */}
                 <div>
                   <label

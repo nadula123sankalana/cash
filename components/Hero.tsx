@@ -5,7 +5,7 @@ import EligibilityForm from "./EligibilityForm";
 
 export default function Hero() {
   return (
-    <section className="gradient-primary min-h-[110vh] flex items-start relative overflow-hidden pt-24 pb-16 md:pb-24">
+    <section className="gradient-primary min-h-[110vh] flex items-start relative overflow-hidden pt-20 sm:pt-24 pb-12 sm:pb-16 md:pb-24">
       {/* Abstract background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute bg-white rounded-full top-20 right-20 w-96 h-96 opacity-5 blur-3xl"></div>
@@ -13,21 +13,21 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500 opacity-5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container relative z-10 px-6 pt-8 mx-auto sm:px-8 lg:px-12 xl:px-16">
-        <div className="grid items-start gap-12 lg:grid-cols-2">
+      <div className="container relative z-10 px-4 pt-6 mx-auto sm:px-6 sm:pt-8 lg:px-12 xl:px-16">
+        <div className="grid items-start gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2">
           {/* Left Content */}
           <div className="text-white">
             {/* Badge */}
-            <div className="flex justify-center mb-6 md:justify-start">
-              <span className="px-4 py-2 text-sm font-semibold tracking-wider uppercase border rounded-full text-accent-cyan bg-white/10 backdrop-blur-sm border-white/20">
+            <div className="flex justify-center mb-4 sm:mb-6 md:justify-start">
+              <span className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold tracking-wider uppercase border rounded-full text-accent-cyan bg-white/10 backdrop-blur-sm border-white/20">
                 Fast Business Funding
               </span>
             </div>
 
-            <h1 className="mb-4 text-5xl font-bold leading-tight text-center md:text-6xl lg:text-7xl font-heading text-shadow md:text-left">
+            <h1 className="mb-3 text-3xl font-bold leading-tight text-center sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-shadow md:text-left">
               Get the working capital for your business needs
             </h1>
-            <p className="max-w-xl mx-auto mb-8 text-base leading-relaxed text-center sm:text-lg md:text-xl text-text-secondary md:mx-0 md:text-left">
+            <p className="max-w-xl mx-auto mb-6 text-sm leading-relaxed text-center sm:mb-8 sm:text-base sm:text-lg md:text-xl text-text-secondary md:mx-0 md:text-left">
               Funding within{" "}
               <span className="font-semibold text-white">24–48 hours</span>,
               with{" "}
@@ -37,13 +37,13 @@ export default function Hero() {
             </p>
 
             {/* Mobile Social Proof (replaces cards on small screens) */}
-            <div className="flex flex-col items-center gap-3 mb-6 -mt-2 md:hidden">
+            <div className="flex flex-col items-center gap-2.5 sm:gap-3 mb-5 sm:mb-6 -mt-1 sm:-mt-2 md:hidden">
               {/* Avatars row */}
-              <div className="flex items-center -space-x-3">
+              <div className="flex items-center -space-x-2.5 sm:-space-x-3">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div
                     key={i}
-                    className="relative w-10 h-10 overflow-hidden border-2 border-white rounded-full shadow-lg"
+                    className="relative overflow-hidden border-2 border-white rounded-full shadow-lg w-9 h-9 sm:w-10 sm:h-10"
                   >
                     <Image
                       src={`/${i}.jpg`}
@@ -54,18 +54,18 @@ export default function Hero() {
                     />
                   </div>
                 ))}
-                <div className="w-10 h-10 rounded-full border-2 border-white bg-white/10 backdrop-blur-sm flex items-center justify-center text-white font-bold text-[0.6rem] shadow-lg">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-white bg-white/10 backdrop-blur-sm flex items-center justify-center text-white font-bold text-[0.55rem] sm:text-[0.6rem] shadow-lg">
                   +15K
                 </div>
               </div>
 
               {/* Stars + rating */}
-              <div className="flex items-center gap-2 text-sm">
-                <div className="flex gap-1">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                <div className="flex gap-0.5 sm:gap-1">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg
                       key={star}
-                      className="w-4 h-4 text-yellow-400"
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -73,11 +73,13 @@ export default function Hero() {
                     </svg>
                   ))}
                 </div>
-                <span className="font-semibold text-white">5.0</span>
+                <span className="text-xs font-semibold text-white sm:text-sm">
+                  5.0
+                </span>
               </div>
 
               {/* Trusted by text */}
-              <div className="text-xs text-text-secondary">
+              <div className="text-[0.7rem] sm:text-xs text-text-secondary text-center">
                 Trusted by <span className="font-bold text-white">20,000+</span>{" "}
                 businesses
               </div>
@@ -220,7 +222,7 @@ export default function Hero() {
           </div>
 
           {/* Right Content - Form */}
-          <div className="flex justify-center -mt-6 sm:-mt-8 md:mt-0 lg:justify-start">
+          <div className="flex justify-center w-full -mt-4 sm:-mt-6 md:-mt-8 lg:mt-0 lg:justify-start">
             <EligibilityForm />
           </div>
         </div>
