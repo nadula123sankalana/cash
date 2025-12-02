@@ -24,12 +24,63 @@ export default function Hero() {
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-8 text-shadow leading-tight text-center md:text-left">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 text-shadow leading-tight text-center md:text-left">
               Get the working capital for your business needs
             </h1>
+            <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-xl mx-auto md:mx-0 leading-relaxed mb-8 text-center md:text-left">
+              Funding within <span className="font-semibold text-white">24–48 hours</span>, 
+              with <span className="font-semibold text-white">no hidden fees</span> or compounding interest—
+              just transparent terms that work for your business.
+            </p>
+
+            {/* Mobile Social Proof (replaces cards on small screens) */}
+            <div className="flex flex-col items-center gap-3 mb-8 md:hidden">
+              {/* Avatars row */}
+              <div className="flex items-center -space-x-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-lg relative"
+                  >
+                    <Image
+                      src={`/${i}.jpg`}
+                      alt={`Customer ${i}`}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+                <div className="w-10 h-10 rounded-full border-2 border-white bg-white/10 backdrop-blur-sm flex items-center justify-center text-white font-bold text-[0.6rem] shadow-lg">
+                  +15K
+                </div>
+              </div>
+
+              {/* Stars + rating */}
+              <div className="flex items-center gap-2 text-sm">
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg
+                      key={star}
+                      className="w-4 h-4 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-white font-semibold">5.0</span>
+              </div>
+
+              {/* Trusted by text */}
+              <div className="text-xs text-text-secondary">
+                Trusted by <span className="font-bold text-white">20,000+</span> businesses
+              </div>
+            </div>
             
-            {/* Key Benefits */}
-            <div className="flex flex-wrap gap-4 mb-10">
+            {/* Key Benefits (hidden on mobile) */}
+            <div className="hidden md:flex flex-wrap gap-4 mb-10">
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
                 <svg className="w-5 h-5 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -50,8 +101,8 @@ export default function Hero() {
               </div>
             </div>
             
-            {/* Social Proof Section */}
-            <div className="mt-10 pt-8 border-t border-white/20">
+            {/* Social Proof Section (desktop and tablet only) */}
+            <div className="mt-10 pt-8 border-t border-white/20 hidden md:block">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 {/* Customer Avatars */}
                 <div className="flex items-center -space-x-3">
