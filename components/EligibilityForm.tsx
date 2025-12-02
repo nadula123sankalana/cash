@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function EligibilityForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 2;
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     // Step 1 - Business Info
@@ -149,8 +151,17 @@ export default function EligibilityForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+
+    // Track Lead event if Facebook Pixel is available
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead", {
+        content_name: "Funding Eligibility Form",
+        content_category: "Form Submission",
+      });
+    }
+
+    // Navigate to thank-you page
+    router.push("/thank-you");
   };
 
   const progressPercentage = (currentStep / totalSteps) * 100;
@@ -271,7 +282,7 @@ export default function EligibilityForm() {
                       </svg>
                     </button>
                     {isBusinessDebtOpen && (
-                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                      <div className="absolute z-30 w-full mt-2 max-h-60 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-100">
                         {businessDebtOptions.map((option) => (
                           <button
                             key={option.value}
@@ -335,7 +346,7 @@ export default function EligibilityForm() {
                       </svg>
                     </button>
                     {isCreditScoreOpen && (
-                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                      <div className="absolute z-30 w-full mt-2 max-h-60 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-100">
                         {creditScoreOptions.map((option) => (
                           <button
                             key={option.value}
@@ -402,7 +413,7 @@ export default function EligibilityForm() {
                       </svg>
                     </button>
                     {isBusinessTypeOpen && (
-                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                      <div className="absolute z-30 w-full mt-2 max-h-60 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-100">
                         {businessTypeOptions.map((option) => (
                           <button
                             key={option.value}
@@ -466,7 +477,7 @@ export default function EligibilityForm() {
                       </svg>
                     </button>
                     {isBankAccountTypeOpen && (
-                      <div className="absolute z-20 w-full mt-2 overflow-hidden bg-white rounded-xl shadow-xl border border-gray-100">
+                      <div className="absolute z-30 w-full mt-2 max-h-60 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-100">
                         {bankAccountTypeOptions.map((option) => (
                           <button
                             key={option.value}

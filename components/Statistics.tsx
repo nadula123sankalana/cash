@@ -41,7 +41,7 @@ export default function Statistics() {
   ]
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 mt-8 md:mt-12 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-blue-100 opacity-30 rounded-full blur-3xl"></div>

@@ -5,7 +5,7 @@ import EligibilityForm from './EligibilityForm'
 
 export default function Hero() {
   return (
-    <section className="gradient-primary min-h-screen flex items-start relative overflow-hidden pt-24">
+    <section className="gradient-primary min-h-[110vh] flex items-start relative overflow-hidden pt-24 pb-16 md:pb-24">
       {/* Abstract background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
