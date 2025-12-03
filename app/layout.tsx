@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   keywords:
     'business funding, fast loans, business financing, 24 hour funding, capital funding',
   authors: [{ name: 'Fund Rise Capital' }],
+  icons: {
+    icon: '/1.ico',
+  },
   openGraph: {
     title: 'Fund Rise Capital - Fast Business Financing in 24 Hours',
     description:
